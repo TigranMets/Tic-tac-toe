@@ -11,8 +11,21 @@ body {
     width: 500px;
 }
 
-.ticTacToe div {
+.square {
     width: 150px;
     height: 150px;
     border: 1px solid white;
 }
+
+img {
+    width: 100%;
+}
+
+.writeX{
+    opacity: 1;
+}
+
+.writeO{
+    opacity: 1;
+}
+
