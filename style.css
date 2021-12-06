@@ -1,8 +1,14 @@
 body {
     display: flex;
     justify-content: center;
+    align-content: center;
     background-color: black;
     color: white;
+}
+
+.ticTacToeWrapper {
+    display: flex;
+    flex-direction: column;
 }
 
 .ticTacToe {
@@ -24,4 +30,23 @@ body {
 
 img {
     width: 98%;
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.score div{
+    display: flex;
+    flex-direction: column;
+    margin:20px 20px 0px 50px;
+}
+
+.score div span{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
 }
