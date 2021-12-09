@@ -93,5 +93,4 @@ function refreshGame() {
     squares.forEach(square => square.addEventListener('click', write));
     document.querySelector('.ticTacToeWrapper').removeEventListener('click', refreshGame);
     clickCount = 0;
-    debugger;
 }
