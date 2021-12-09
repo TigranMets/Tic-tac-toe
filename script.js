@@ -22,8 +22,8 @@ function write() {
     if (!playerChanger) {
         board[row][column] = player;
         player = 'O';
-        console.log(board);
         let x = document.createElement('IMG');
+        x.classList.add('x');
         x.src = 'https://www.vippng.com/png/full/493-4930781_letter-png-white-x-letter-png.png';
         this.appendChild(x);
         playerChanger = true;
@@ -32,15 +32,17 @@ function write() {
     } else {
         board[row][column] = player;
         player = 'X';
-        console.log(board);
         let o = document.createElement('IMG');
+        o.classList.add('o');
         o.src = 'https://media-s3-us-east-1.ceros.com/optiv/images/2018/10/09/0677daa19a3b6628a3bda54a769f456f/optiv-o.png?imageOpt=1&fit=bounds&width=1126';
         this.appendChild(o);
         playerChanger = false;
         this.removeEventListener('click', write);
         clickCount++;
     }
-    check();
+    if (clickCount >= 5) {
+        check();
+    }
 }
 
 function check() {
@@ -66,9 +68,6 @@ function check() {
     else if (clickCount >= 9) {
         scoreChanger(++scoreTie);
     }
-    else {
-        console.log('waiting');
-    }
 }
 
 function scoreChanger(score, xo) {
@@ -82,4 +81,17 @@ function scoreChanger(score, xo) {
     } else {
         document.querySelector('.tie').appendChild(node);
     }
+    squares.forEach(square => square.removeEventListener('click', write));
+    setTimeout(() => {
+        document.querySelector('.ticTacToeWrapper').addEventListener('click', refreshGame);
+    }, 20);
+    }
+
+function refreshGame() {
+    let allXO = document.querySelectorAll('img');
+    allXO.forEach(XO => XO.remove());
+    squares.forEach(square => square.addEventListener('click', write));
+    document.querySelector('.ticTacToeWrapper').removeEventListener('click', refreshGame);
+    clickCount = 0;
+    debugger;
 }
