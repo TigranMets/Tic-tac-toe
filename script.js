@@ -94,3 +94,5 @@ function refreshGame() {
     document.querySelector('.ticTacToeWrapper').removeEventListener('click', refreshGame);
     clickCount = 0;
 }
+
+// yeah yeah nice
